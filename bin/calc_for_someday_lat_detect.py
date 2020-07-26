@@ -132,10 +132,10 @@ while cur_ts <= end_timestamp:
             sql_detect = 'select count(lat) from ' + stat_table + " where ymdh ='"+cur_ymdh+"'"
             print sql_detect
             try:
-                conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                                     user=conf.db_setting['master']['user'],
-                                     passwd=conf.db_setting['master']['pwd'], 
-                                     port=conf.db_setting['master']['port'])
+                conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                                     user=conf.db_setting['main']['user'],
+                                     passwd=conf.db_setting['main']['pwd'], 
+                                     port=conf.db_setting['main']['port'])
                 cur=conn.cursor()
                 conn.select_db(conf.db_setting['stat_db'])        
                 cur.execute(sql_detect)

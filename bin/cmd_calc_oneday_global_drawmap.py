@@ -160,10 +160,10 @@ def cal_and_create_hdf(channel):
     scans_cnt = []
     for one_table in my_table:
         try:
-            conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                                 user=conf.db_setting['master']['user'],
-                                 passwd=conf.db_setting['master']['pwd'], 
-                                 port=conf.db_setting['master']['port'])
+            conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                                 user=conf.db_setting['main']['user'],
+                                 passwd=conf.db_setting['main']['pwd'], 
+                                 port=conf.db_setting['main']['port'])
             cur=conn.cursor()
             #conn.select_db('FY3C_MWTS')
             conn.select_db(conf.table_setting[sat.lower()][ins.lower()]['data_db'])
@@ -396,10 +396,10 @@ def main():
     
     #get the useful table name
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.table_setting[sat.lower()][ins.lower()]['data_db'])
         #conn.select_db('FY3C_MWTS')

@@ -170,8 +170,8 @@ sim_bin = {
 sleep_time_conf = conf_path + '/sleep_time.conf'
 
 db_setting = {
-    'master': {'ip': '127.0.0.1', 'user':'root', 'pwd':'', 'port':3306},
-    'slave': {'ip': '127.0.0.1', 'user':'root', 'pwd':'', 'port':3306},
+    'main': {'ip': '127.0.0.1', 'user':'root', 'pwd':'', 'port':3306},
+    'subordinate': {'ip': '127.0.0.1', 'user':'root', 'pwd':'', 'port':3306},
     'stat_db': 'STAT',
     'info_db': 'INFO',
 }

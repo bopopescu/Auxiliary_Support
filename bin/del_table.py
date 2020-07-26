@@ -201,10 +201,10 @@ def turnhdf_obc_ms(table):
 def main():
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db('FY3C_MWTS_V2')
         

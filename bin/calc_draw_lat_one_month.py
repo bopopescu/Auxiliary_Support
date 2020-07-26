@@ -195,10 +195,10 @@ def	draw_one_channel(channel):
 # | 2014-04-29 00:00:00 | rttov   |       1 | -85 |  6432 |   -11.2826 | 6.53|
 # | 2014-04-29 00:00:00 | rttov   |       1 | -80 | 27246 |   -10.4366 | 12.1|
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-							 user=conf.db_setting['master']['user'],
-							 passwd=conf.db_setting['master']['pwd'], 
-							 port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+							 user=conf.db_setting['main']['user'],
+							 passwd=conf.db_setting['main']['pwd'], 
+							 port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.db_setting['stat_db'])		
         cur.execute(sql)
@@ -357,10 +357,10 @@ def calc_one_channel(channel):
     common.debug(my_log, log_tag, 'channel '+str(channel)+'`crtm`'+crtm_sql)
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-							 user=conf.db_setting['master']['user'],
-							 passwd=conf.db_setting['master']['pwd'], 
-							 port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+							 user=conf.db_setting['main']['user'],
+							 passwd=conf.db_setting['main']['pwd'], 
+							 port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         for one_lat_span in lat_list:
             conn.select_db(conf.table_setting[sat][ins]['data_db'])
@@ -466,10 +466,10 @@ def main():
     also, there is a BUG... ...
     """
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute('show tables') # the result is already sorted by ascii.

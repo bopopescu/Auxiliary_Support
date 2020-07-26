@@ -104,10 +104,10 @@ def export_channel_table(channel):
         + conf.export_txt%(tmpfile)
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor(MySQLdb.cursors.DictCursor)
         conn.select_db(conf.table_setting[sat][ins]['data_db'])      
         cur.execute(sql)
@@ -133,10 +133,10 @@ def export_obc_table():
         + conf.export_txt%(tmpfile)
     
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor(MySQLdb.cursors.DictCursor)
         conn.select_db(conf.table_setting[sat][ins]['data_db'])      
         cur.execute(sql)
@@ -245,10 +245,10 @@ def main():
     signal.signal(signal.SIGINT, signal_handler)   
     
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         sql_cmd = 'show tables like ' + '\"' + sat.upper() + '_' + ins.upper()\

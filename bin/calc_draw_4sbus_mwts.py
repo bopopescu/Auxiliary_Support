@@ -194,10 +194,10 @@ def draw_one_channel(channel):
         + conf.export_txt%(tmpfile1month + '.txt')
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor(MySQLdb.cursors.DictCursor)
         conn.select_db(conf.table_setting[sat][ins]['data_db'])      
         cur.execute(sql_3day)
@@ -361,10 +361,10 @@ def get_channel_txt(tmpfile1year,tmpfilelife,type,channel):
                 + conf.export_txt%(tmpfilelife +'.' +type + '.txt')
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor(MySQLdb.cursors.DictCursor)
         conn.select_db(conf.db_setting['stat_db'])      
         cur.execute(sql_1year)
@@ -400,10 +400,10 @@ def get_obc_txt(tmpfile1year,tmpfilelife,type):
                 + conf.export_txt%(tmpfilelife +'.' +type + '.txt')
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor(MySQLdb.cursors.DictCursor)
         conn.select_db(conf.db_setting['stat_db'])      
         cur.execute(sql_1year)
@@ -492,10 +492,10 @@ def draw_just_obc():
         + conf.export_txt%(tmpfile1month_calc + '.txt')
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor(MySQLdb.cursors.DictCursor)
         conn.select_db(conf.table_setting[sat][ins]['data_db'])      
         cur.execute(sql_3day)
@@ -747,10 +747,10 @@ def main():
     also, there is a BUG... ...
     """
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute('show tables') # the result is already sorted by ascii.

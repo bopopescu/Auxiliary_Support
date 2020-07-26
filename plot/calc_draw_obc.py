@@ -167,10 +167,10 @@ def draw_one_channel(channel):
                 + conf.obc_3dim_where_sql + str(channel) + " limit 1"
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor(MySQLdb.cursors.DictCursor)
         conn.select_db(conf.table_setting[sat][ins]['data_db'])      
         cur.execute(sql)
@@ -329,10 +329,10 @@ def draw_just_obc():
                 + " limit 1"
          
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor(MySQLdb.cursors.DictCursor)
         conn.select_db(conf.table_setting[sat][ins]['data_db'])      
         cur.execute(sql)
@@ -553,10 +553,10 @@ def main():
     also, there is a BUG... ...
     """
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute('show tables') # the result is already sorted by ascii.

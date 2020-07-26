@@ -297,10 +297,10 @@ def hdf_sim_to_db(hdf_name):
 
     time_begin = time.time()
     try:
-        conn = MySQLdb.connect(host = conf.db_setting['master']['ip'],
-                               user = conf.db_setting['master']['user'],
-                               passwd = conf.db_setting['master']['pwd'],
-                               port = conf.db_setting['master']['port'])
+        conn = MySQLdb.connect(host = conf.db_setting['main']['ip'],
+                               user = conf.db_setting['main']['user'],
+                               passwd = conf.db_setting['main']['pwd'],
+                               port = conf.db_setting['main']['port'])
         cur = conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute(conf.drop_table%(table) )
@@ -328,10 +328,10 @@ def calc_orbit_direction(hdf_name):
     table = get_table_name(hdf_name)
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])        
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])        
         cur=conn.cursor()
         conn.select_db(my_setting['data_db'])
         sql = 'select scln, ' + ins_conf.lat_sds_to_db[1]['db_field'] \

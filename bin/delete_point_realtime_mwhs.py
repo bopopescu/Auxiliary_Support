@@ -166,10 +166,10 @@ def draw_one_channel_crtm(channel):
     point_data = numpy.arange(1, ins_conf.pixels + 1, int(1), dtype = numpy.int32)
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.db_setting['stat_db']) 
     except MySQLdb.Error, e:
@@ -328,10 +328,10 @@ def draw_one_channel_rttov(channel):
     point_data = numpy.arange(1, ins_conf.pixels + 1, int(1), dtype = numpy.int32)
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.db_setting['stat_db']) 
     except MySQLdb.Error, e:
@@ -504,10 +504,10 @@ def check_one_channel(channel):
     
     print sql
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.db_setting['stat_db'])
         cur.execute(sql)
@@ -527,10 +527,10 @@ def check_one_channel(channel):
         print 'I will delete data !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
         print delete_sql
         try:
-            conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                                 user=conf.db_setting['master']['user'],
-                                 passwd=conf.db_setting['master']['pwd'], 
-                                 port=conf.db_setting['master']['port'])
+            conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                                 user=conf.db_setting['main']['user'],
+                                 passwd=conf.db_setting['main']['pwd'], 
+                                 port=conf.db_setting['main']['port'])
             cur=conn.cursor()
             conn.select_db(conf.db_setting['stat_db'])
             cur.execute(delete_sql)
@@ -560,10 +560,10 @@ def calc_one_channel(channel):
     common.debug(my_log, log_tag, 'channel '+str(channel)+'`crtm`'+crtm_sql)
  
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         point = []
         t= ()
@@ -695,10 +695,10 @@ def main():
     if len(mysql_date_yestday) != 0 :
         mysql_yestday = 'show tables like \'%' + mysql_date_yestday + '%T639\''
         try:
-            conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                                 user=conf.db_setting['master']['user'],
-                                 passwd=conf.db_setting['master']['pwd'], 
-                                 port=conf.db_setting['master']['port'])
+            conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                                 user=conf.db_setting['main']['user'],
+                                 passwd=conf.db_setting['main']['pwd'], 
+                                 port=conf.db_setting['main']['port'])
             cur=conn.cursor()
             conn.select_db(conf.table_setting[sat][ins]['data_db'])
             cur.execute(mysql_yestday) # the result is already sorted by ascii.
@@ -718,10 +718,10 @@ def main():
 
     mysql_today = 'show tables like \'%' + mysql_date_today + '%T639\''
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute(mysql_today) # the result is already sorted by ascii.

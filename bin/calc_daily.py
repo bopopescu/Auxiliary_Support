@@ -111,10 +111,10 @@ def calc_just_obc():
     
     
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'], 
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'], 
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
     except MySQLdb.Error, e:
         msg = 'calc_just_obc`Mysql Fatal Error[' + str(e.args[0]) \
@@ -195,10 +195,10 @@ def calc_one_channel(channel):
         return True
     
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                             user=conf.db_setting['master']['user'],
-                             passwd=conf.db_setting['master']['pwd'], 
-                             port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                             user=conf.db_setting['main']['user'],
+                             passwd=conf.db_setting['main']['pwd'], 
+                             port=conf.db_setting['main']['port'])
         cur=conn.cursor()
     except MySQLdb.Error, e:
         msg = 'calc_one_channel ' + str(channel) + '`Mysql Fatal Error[' \
@@ -325,10 +325,10 @@ show_table_sql = "show tables like '%" + timespan['begin_str'][0:4] \
                 + timespan['begin_str'][5:7] + timespan['begin_str'][8:10] \
                 + "%OBC%' "
 try:
-    conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                         user=conf.db_setting['master']['user'],
-                         passwd=conf.db_setting['master']['pwd'], 
-                         port=conf.db_setting['master']['port'])
+    conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                         user=conf.db_setting['main']['user'],
+                         passwd=conf.db_setting['main']['pwd'], 
+                         port=conf.db_setting['main']['port'])
     cur=conn.cursor()
     conn.select_db(conf.table_setting[sat][ins]['data_db'])
     cur.execute(show_table_sql) # the result is already sorted by ascii.

@@ -65,10 +65,10 @@ def GetTime(strtime):
 def LogData_To_Db(table ,insertsql ,cflag):
 	#connect database
     	try:
-        	conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                                     user=conf.db_setting['master']['user'],
-                                     passwd=conf.db_setting['master']['pwd'], 
-                                     port=conf.db_setting['master']['port'])
+        	conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                                     user=conf.db_setting['main']['user'],
+                                     passwd=conf.db_setting['main']['pwd'], 
+                                     port=conf.db_setting['main']['port'])
 		#print 'user= ' ,user
 		#print 'passwd= ' ,passwd
 		#print 'port= ' ,port
@@ -81,10 +81,10 @@ def LogData_To_Db(table ,insertsql ,cflag):
                 + str(e.args[0])+']: '+e.args[1] 
             common.err(my_log, log_tag, msg)
             if cmp(str(e.args[0]),'2006') == 0  or cmp(str(e.args[0]),'2013') == 0 :
-                conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                                 		user=conf.db_setting['master']['user'],
-                                 		passwd=conf.db_setting['master']['pwd'], 
-                                        port=conf.db_setting['master']['port'])
+                conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                                 		user=conf.db_setting['main']['user'],
+                                 		passwd=conf.db_setting['main']['pwd'], 
+                                        port=conf.db_setting['main']['port'])
                 cur=conn.cursor()
             	#conn.select_db(ins_conf.data_db)
         	conn.select_db(conf.db_setting['info_db'])

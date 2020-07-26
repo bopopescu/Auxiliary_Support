@@ -181,10 +181,10 @@ def	draw_one_channel(channel):
 # 	| 2014-03-01 12:00:00 | crtm    |       1 | 930282 | 12.7587 | 17.0431 |
 # 	| 2014-03-01 12:00:00 | rttov   |       1 | 970205 | 4.54543 | 14.8319 |
     try:
-		conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-							 user=conf.db_setting['master']['user'],
-							 passwd=conf.db_setting['master']['pwd'], 
-							 port=conf.db_setting['master']['port'])
+		conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+							 user=conf.db_setting['main']['user'],
+							 passwd=conf.db_setting['main']['pwd'], 
+							 port=conf.db_setting['main']['port'])
 		cur=conn.cursor(MySQLdb.cursors.DictCursor)
 		conn.select_db(conf.db_setting['stat_db'])
 		cur.execute(sql)
@@ -289,10 +289,10 @@ def calc_one_channel(channel):
     common.debug(my_log, log_tag, 'channel '+str(channel)+'`crtm`'+crtm_sql)
 
     try:
-        conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-							 user=conf.db_setting['master']['user'],
-							 passwd=conf.db_setting['master']['pwd'], 
-							 port=conf.db_setting['master']['port'])
+        conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+							 user=conf.db_setting['main']['user'],
+							 passwd=conf.db_setting['main']['pwd'], 
+							 port=conf.db_setting['main']['port'])
         cur=conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute(rttov_sql)
@@ -372,10 +372,10 @@ We MUST create fy3b-mwts INFO db, for easy time search, not show tables!!
 also, there is a BUG... ...
 """
 try:
-    conn=MySQLdb.connect(host=conf.db_setting['master']['ip'], 
-                         user=conf.db_setting['master']['user'],
-                         passwd=conf.db_setting['master']['pwd'], 
-                         port=conf.db_setting['master']['port'])
+    conn=MySQLdb.connect(host=conf.db_setting['main']['ip'], 
+                         user=conf.db_setting['main']['user'],
+                         passwd=conf.db_setting['main']['pwd'], 
+                         port=conf.db_setting['main']['port'])
     cur=conn.cursor()
     conn.select_db(conf.table_setting[sat][ins]['data_db'])
     cur.execute('show tables') # the result is already sorted by ascii.

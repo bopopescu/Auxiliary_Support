@@ -221,10 +221,10 @@ def obc_2dim_data_to_db(hdf_name):
     table = common.get_table_name(hdf_name)
 
     try:
-        conn = MySQLdb.connect(host = conf.db_setting['master']['ip'],
-                               user = conf.db_setting['master']['user'],
-                               passwd = conf.db_setting['master']['pwd'],
-                               port = conf.db_setting['master']['port'])
+        conn = MySQLdb.connect(host = conf.db_setting['main']['ip'],
+                               user = conf.db_setting['main']['user'],
+                               passwd = conf.db_setting['main']['pwd'],
+                               port = conf.db_setting['main']['port'])
         cur = conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute(conf.drop_table%(table) )
@@ -301,10 +301,10 @@ def obc_3dim_data_to_db(hdf_name):
     table = common.get_table_name(hdf_name) + '_' + str(channel)
 
     try:
-        conn = MySQLdb.connect(host = conf.db_setting['master']['ip'],
-                               user = conf.db_setting['master']['user'],
-                               passwd = conf.db_setting['master']['pwd'],
-                               port = conf.db_setting['master']['port'])
+        conn = MySQLdb.connect(host = conf.db_setting['main']['ip'],
+                               user = conf.db_setting['main']['user'],
+                               passwd = conf.db_setting['main']['pwd'],
+                               port = conf.db_setting['main']['port'])
         cur = conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute(conf.drop_table%(table) )
@@ -465,10 +465,10 @@ def calc_obc_to_db_mwts_2dim(hdf_name):
     
     # create table.
     try:
-        conn = MySQLdb.connect(host = conf.db_setting['master']['ip'],
-                               user = conf.db_setting['master']['user'],
-                               passwd = conf.db_setting['master']['pwd'],
-                               port = conf.db_setting['master']['port'])
+        conn = MySQLdb.connect(host = conf.db_setting['main']['ip'],
+                               user = conf.db_setting['main']['user'],
+                               passwd = conf.db_setting['main']['pwd'],
+                               port = conf.db_setting['main']['port'])
         cur = conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute(conf.drop_table%(table) )
@@ -591,10 +591,10 @@ def calc_obc_to_db_mwhs_2dim(hdf_name):
     
     # create table.
     try:
-        conn = MySQLdb.connect(host = conf.db_setting['master']['ip'],
-                               user = conf.db_setting['master']['user'],
-                               passwd = conf.db_setting['master']['pwd'],
-                               port = conf.db_setting['master']['port'])
+        conn = MySQLdb.connect(host = conf.db_setting['main']['ip'],
+                               user = conf.db_setting['main']['user'],
+                               passwd = conf.db_setting['main']['pwd'],
+                               port = conf.db_setting['main']['port'])
         cur = conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute(conf.drop_table%(table) )
@@ -694,10 +694,10 @@ def calc_obc_to_db_mwhs_3dim(hdf_name):
     
 
     try:
-        conn = MySQLdb.connect(host = conf.db_setting['master']['ip'],
-                               user = conf.db_setting['master']['user'],
-                               passwd = conf.db_setting['master']['pwd'],
-                               port = conf.db_setting['master']['port'])
+        conn = MySQLdb.connect(host = conf.db_setting['main']['ip'],
+                               user = conf.db_setting['main']['user'],
+                               passwd = conf.db_setting['main']['pwd'],
+                               port = conf.db_setting['main']['port'])
         cur = conn.cursor()
         conn.select_db(conf.table_setting[sat][ins]['data_db'])
         cur.execute(conf.drop_table%(table) )
@@ -828,10 +828,10 @@ def do_nedn_one_channel(input):
                 + format(nedn, '.3f') + ')'
     
     try:
-        conn = MySQLdb.connect(host = conf.db_setting['master']['ip'],
-                               user = conf.db_setting['master']['user'],
-                               passwd = conf.db_setting['master']['pwd'],
-                               port = conf.db_setting['master']['port'])
+        conn = MySQLdb.connect(host = conf.db_setting['main']['ip'],
+                               user = conf.db_setting['main']['user'],
+                               passwd = conf.db_setting['main']['pwd'],
+                               port = conf.db_setting['main']['port'])
         cur = conn.cursor()
         conn.select_db(conf.db_setting['stat_db'])
         cur.execute(insert_sql)
